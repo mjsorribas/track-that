@@ -52,7 +52,11 @@
                     <ul class="nav nav-sidebar">
                         <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">Products</a></li>
+                        <li><a href="#">Products>Export</a></li>
+                        <li><a href="#">Products>View By Project</a></li>
                         <li><a href="#">Projects</a></li>
+                        <li><a href="#">Projects>Add/Remove</a></li>
+                        <li><a href="#">Projects>Change Status</a></li>
                     </ul>
                 </div>
             </div>
