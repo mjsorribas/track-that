@@ -20,24 +20,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="#">Project name</a>
+                  <a class="navbar-brand" href="index.php">CTS Remote Inventory System</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Hi, User!</a></li>
                   </ul>
-                  <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="Search...">
-                  </form>
                 </div>
             </div>
         </nav>
 
         <!-- Scripts -->
+        <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script> <!-- jQuery must be loaded first for Bootstrap to not complain -->
         <script type="text/javascript" src="./js/bootstrap-3.3.2.min.js"></script>
-        <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
     </body>
 </html>
