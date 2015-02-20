@@ -1,4 +1,4 @@
-<!-- START TEMPLATE TOP -->
+<!-- START TEMPLATE HEADER -->
 
 <!--
         top.php - The top half of the template
@@ -44,20 +44,4 @@
         </nav>
         <!-- End top Navbar -->
 
-        <!-- Start left sidebar -->
-
-        <div class="container-fluid"> <!-- container-fluid div should wrap everything under the top navbar -->
-            <div class="row">
-                <div class="col-sm-3 col-md-2 sidebar">
-                    <ul class="nav nav-sidebar">
-                        <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Products>Export</a></li>
-                        <li><a href="#">Products>View By Project</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Projects>Add/Remove</a></li>
-                        <li><a href="#">Projects>Change Status</a></li>
-                    </ul>
-                </div>
-            </div>
-<!-- END TEMPLTE TOP -->
+<!-- END TEMPLTE HEADER -->
