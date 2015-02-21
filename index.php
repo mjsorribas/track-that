@@ -30,7 +30,11 @@
                 <!-- End left sidebar -->
                 <div class="col-md-offset-2 maincontent">
                     <h1 class="page-header">Overview</h1>
-                    <p>I'm a placeholder!</p>
+                    <p>Ideas for information here:</p>
+                    <ul>
+                        <li>Number of projects: Total/Active/Inactive</li>
+                        <li>Parts added today: </li>
+                    </ul>
 
                     <h2 class="sub-header">Latest Activity</h2>
                     <table class="table table-striped">
@@ -55,7 +59,6 @@
                             <td>Chad added an item to <a href="#">First National Bank-New Front Cameras</a></td>
                         </tr>
                     </table>
-
             </div>
         </div><!-- container-fluid-->
         <?php require_once("template/footer.php"); ?>
