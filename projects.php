@@ -20,8 +20,6 @@
 	            <ul class="nav nav-sidebar">
 	                <li><a href="index.php">Overview</a></li>
 	                <li><a href="products.php">Products</a></li>
-	                <li><a href="#">Products>Export</a></li>
-	                <li><a href="#">Products>View By Project</a></li>
 	                <li class="active"><a href="#">Projects <span class="sr-only">(current)</span></a></li>
 	                <li><a href="#">Projects>Add/Remove</a></li>
 	                <li><a href="#">Projects>Change Status</a></li>
@@ -37,6 +35,15 @@
 					<li role="presentation" class="active"><a ref="#">Active</a></li>
 					<li role="presentation"><a href="#">Inactive</a></li>
 					<li role="presentation"><a href="#">All</a></li>
+					<li role="presentation" class="dropdown"> 
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+							Edit<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li role="presentation"><a href="#" role="menuitem">Add New</a></li>
+							<li role="presentation"><a href="#" role="menuitem">Change Status</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 	    </div>
