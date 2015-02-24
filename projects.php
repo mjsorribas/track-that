@@ -4,15 +4,16 @@
 		Created By: Dan
 -->
 <?php
-
+	// If there's no view set, which one should we re-direct to?
 	$DEFAULT_TAB = "Active";
-	// Get the view to determine which tab should be active
 	
 	if (!isset($_GET['view'])) {
 		// There's no view parameter set in the address. Automatically re-direct to the default
 		header('Location: projects.php?view='.$DEFAULT_TAB);
 		die();
 	}
+
+	// Get the view to determine which tab should be active
 	$activeTab = $_GET['view'];
 ?>
 <head>
@@ -51,9 +52,18 @@
 
 				<!-- Tabs here -->
 				<ul class="nav nav-tabs">
-					<li role="presentation" class="active"><a ref="#">Active</a></li>
-					<li role="presentation"><a href="#">Inactive</a></li>
-					<li role="presentation"><a href="#">All</a></li>
+					<li role="presentation" 
+						<?php echo ($activeTab == "active" ? "class='active'" : "")?>>
+						<a ref="#">Active</a>
+					</li>
+					<li role="presentation" 
+						<?php echo ($activeTab == "inactive" ? "class='active'" : "")?>>
+						<a href="#">Inactive</a>
+					</li>
+					<li role="presentation" 
+						<?php echo ($activeTab == "All" ? "class='active'" : "")?>>
+						<a href="#">All</a>
+					</li>
 					<li role="presentation" class="dropdown"> 
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
 							Edit<span class="caret"></span>
@@ -64,7 +74,7 @@
 						</ul>
 					</li>
 				</ul>
-
+				<!-- End of tabs -->
 				<!-- Content of tab here -->
 
 
