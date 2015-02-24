@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 </head>
 <body>
 	<?php require_once("template/navbar.php"); ?>
@@ -32,8 +35,10 @@
 			<div class="col-md-offset-2 maincontent">
 				<!-- Page content goes here -->
 				<h1 class="page-header">Products</h1>
-				<select>
-
+				Select Project:
+				<select class="selectpicker">
+					<option value="0">Jim Barta - 4 New Laptops</option>
+					<option value="1">Region 9 - 2 New Cameras</option>
 				</select>
 				<h2 class="sub-header">Region 9 - 2 New Cameras</h2>
 				<table class="table table-striped">
