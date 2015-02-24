@@ -9,6 +9,7 @@
     <title>Inventory System - Products</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/products.css">
 </head>
 <body>
 	<?php require_once("template/navbar.php"); ?>
@@ -30,7 +31,17 @@
 	        <!-- End left sidebar -->
 			<div class="col-md-offset-2 maincontent">
 				<!-- Page content goes here -->
+				<h1 class="page-header">Products</h1>
+				<table>
+					<tr>
+						<th>Added</th>
+						<th>Product #</th>
+						<th>Quantity</th>
+						<th>Added By</th>
+					</tr>
 
+				</table>
 			</div>
 	    </div>
 	</div>
+	<?php require_once("template/footer.php"); ?>
