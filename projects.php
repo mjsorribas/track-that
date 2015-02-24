@@ -30,9 +30,14 @@
 	        <!-- End left sidebar -->
 			<div class="col-md-offset-2 maincontent">
 				<!-- Page content goes here -->
-				<h1 class="page-header">Products</h1>
+				<h1 class="page-header">Projects</h1>
 
-
+				<!-- Tabs here -->
+				<ul class="nav nav-tabs">
+					<li role="presentation" class="active"><a ref="#">Active</a></li>
+					<li role="presentation"><a href="#">Inactive</a></li>
+					<li role="presentation"><a href="#">All</a></li>
+				</ul>
 			</div>
 	    </div>
 	</div>
