@@ -32,14 +32,47 @@
 			<div class="col-md-offset-2 maincontent">
 				<!-- Page content goes here -->
 				<h1 class="page-header">Products</h1>
-				<table>
+				<select>
+
+				</select>
+				<h2 class="sub-header">Region 9 - 2 New Cameras</h2>
+				<table class="table table-striped">
 					<tr>
 						<th>Added</th>
 						<th>Product #</th>
 						<th>Quantity</th>
 						<th>Added By</th>
 					</tr>
-
+					<tr>
+						<td>2/12/15 5:56pm</td>
+						<td>1234566-789</td>
+						<td>34</td>
+						<td>Ethan</td>
+					</tr>
+					<tr>
+						<td>2/11/15 1:23pm</td>
+						<td>1234566-789</td>
+						<td>3</td>
+						<td>Ethan</td>
+					</tr>
+					<tr>
+						<td>2/11/15 1:22pm</td>
+						<td>166-789</td>
+						<td>4</td>
+						<td>Chad</td>
+					</tr>
+					<tr>
+						<td>2/10/15 9:13am</td>
+						<td>1289</td>
+						<td>8</td>
+						<td>Jeremy</td>
+					</tr>
+					<tr>
+						<td>2/10/15 3:10pm</td>
+						<td>ST446AZ00-0</td>
+						<td>90</td>
+						<td>Chris</td>
+					</tr>
 				</table>
 			</div>
 	    </div>
