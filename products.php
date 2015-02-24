@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="css/products.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
 
-    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 </head>
 <body>
 	<?php require_once("template/navbar.php"); ?>
@@ -22,8 +21,8 @@
 	    <div class="row">
 	        <div class="sidebar">
 	            <ul class="nav nav-sidebar">
-	                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-	                <li><a href="#">Products</a></li>
+	                <li><a href="index.php">Overview</a></li>
+	                <li class="active"><a href="products.php">Products <span class="sr-only">(current)</span></a></li>
 	                <li><a href="#">Products>Export</a></li>
 	                <li><a href="#">Products>View By Project</a></li>
 	                <li><a href="#">Projects</a></li>

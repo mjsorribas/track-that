@@ -19,7 +19,7 @@
                 <div class="sidebar">
                     <ul class="nav nav-sidebar">
                         <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Products</a></li>
+                        <li><a href="products.php">Products</a></li>
                         <li><a href="#">Products>Export</a></li>
                         <li><a href="#">Products>View By Project</a></li>
                         <li><a href="#">Projects</a></li>
@@ -59,6 +59,6 @@
                             <td>Chad added an item to <a href="#">First National Bank-New Front Cameras</a></td>
                         </tr>
                     </table>
-            </div>
+                </div>
         </div><!-- container-fluid-->
         <?php require_once("template/footer.php"); ?>
