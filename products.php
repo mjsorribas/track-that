@@ -23,9 +23,7 @@
 	            <ul class="nav nav-sidebar">
 	                <li><a href="index.php">Overview</a></li>
 	                <li class="active"><a href="products.php">Products <span class="sr-only">(current)</span></a></li>
-	                <li><a href="#">Products>Export</a></li>
-	                <li><a href="#">Products>View By Project</a></li>
-	                <li><a href="#">Projects</a></li>
+	                <li><a href="projects.php">Projects</a></li>
 	                <li><a href="#">Projects>Add/Remove</a></li>
 	                <li><a href="#">Projects>Change Status</a></li>
 	            </ul>

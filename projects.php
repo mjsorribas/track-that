@@ -20,7 +20,14 @@
 	            <ul class="nav nav-sidebar">
 	                <li><a href="index.php">Overview</a></li>
 	                <li><a href="products.php">Products</a></li>
-	                <li class="active"><a href="#">Projects <span class="sr-only">(current)</span></a></li>
+
+	                <li class="active">
+	                	<a href="projects.php">
+	                		Projects <span class="sr-only">(current)</span>
+	                		<b class="caret"></b>
+	                	</a>
+	                </li>
+
 	                <li><a href="#">Projects>Add/Remove</a></li>
 	                <li><a href="#">Projects>Change Status</a></li>
 	            </ul>
