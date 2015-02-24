@@ -3,6 +3,18 @@
 		Created On: 2/24/15
 		Created By: Dan
 -->
+<?php
+
+	$DEFAULT_TAB = "Active";
+	// Get the view to determine which tab should be active
+	
+	if (!isset($_GET['view'])) {
+		// There's no view parameter set in the address. Automatically re-direct to the default
+		header('Location: projects.php?view='.$DEFAULT_TAB);
+		die();
+	}
+	$activeTab = $_GET['view'];
+?>
 <head>
     <meta charset="UTF-8">
     <title>Inventory System - Projects</title>
@@ -52,6 +64,10 @@
 						</ul>
 					</li>
 				</ul>
+
+				<!-- Content of tab here -->
+
+
 			</div>
 	    </div>
 	</div>
