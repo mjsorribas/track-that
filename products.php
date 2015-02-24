@@ -39,7 +39,10 @@
 					<option value="0">Jim Barta - 4 New Laptops</option>
 					<option value="1">Region 9 - 2 New Cameras</option>
 				</select>
-				<h2 class="sub-header">Region 9 - 2 New Cameras</h2>
+				<h2 class="sub-header">
+					Region 9 - 2 New Cameras
+					<a href="#"><button class="btn btn-primary btnExport">Export</button></a>
+				</h2>
 				<table class="table table-striped">
 					<tr>
 						<th>Added</th>
