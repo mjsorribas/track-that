@@ -5,7 +5,7 @@
 -->
 <?php
 	// If there's no view set, which one should we re-direct to?
-	$DEFAULT_TAB = "Active";
+	$DEFAULT_TAB = "active";
 	
 	if (!isset($_GET['view'])) {
 		// There's no view parameter set in the address. Automatically re-direct to the default
@@ -54,15 +54,15 @@
 				<ul class="nav nav-tabs">
 					<li role="presentation" 
 						<?php echo ($activeTab == "active" ? "class='active'" : "")?>>
-						<a ref="#">Active</a>
+						<a href="projects.php?view=active">Active</a>
 					</li>
 					<li role="presentation" 
 						<?php echo ($activeTab == "inactive" ? "class='active'" : "")?>>
-						<a href="#">Inactive</a>
+						<a href="projects.php?view=inactive">Inactive</a>
 					</li>
 					<li role="presentation" 
-						<?php echo ($activeTab == "All" ? "class='active'" : "")?>>
-						<a href="#">All</a>
+						<?php echo ($activeTab == "all" ? "class='active'" : "")?>>
+						<a href="projects.php?view=all">All</a>
 					</li>
 					<li role="presentation" class="dropdown"> 
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
@@ -76,7 +76,29 @@
 				</ul>
 				<!-- End of tabs -->
 				<!-- Content of tab here -->
-
+				<?php
+					// Display content based on the view selected
+					switch($activeTab) {
+						case "active":
+							?>
+								<p>View: Active</p>
+							<?php
+							break;
+						case "inactive":
+							?>
+								<p>View: Inactive</p>
+							<?php
+							break;
+						case "all":
+							?>
+								<p>View: All</p>
+							<?php
+							break;
+						default:
+							//Something went wrong.
+							echo "Something went wrong. Please go back to the home page and start over.";
+					}
+				?>
 
 			</div>
 	    </div>
