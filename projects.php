@@ -102,12 +102,59 @@
 							break;
 						case "inactive":
 							?>
-								<p>View: Inactive</p>
+							<table id="viewInactive" class="table table-striped">
+								<tr>
+									<th>Added</th>
+									<th>Name</th>
+									<th>Total Products</th>
+								</tr>
+								<tr>
+									<td>4/11/15</td>
+									<td>MNRAA - Move cameras</td>
+									<td>12</td>
+								</tr>
+								<tr>
+									<td>8/12/15</td>
+									<td>Odin State Bank - New patch panel</td>
+									<td>12</td>
+								</tr>
+							</table>
 							<?php
 							break;
 						case "all":
 							?>
-								<p>View: All</p>
+							<table id="viewAll" class="table table-striped">
+								<tr>
+									<th>Added</th>
+									<th>Name</th>
+									<th>Status</th>
+									<th>Total Products</th>
+								</tr>
+								<tr>
+									<td>4/12/15</td>
+									<td>Region 9 - 2 New Cameras</td>
+									<td>Active</td>
+									<td>12</td>
+								</tr>
+								<tr>
+									<td>4/11/15</td>
+									<td>MNRAA - Move cameras</td>
+									<td>Inactive</td>
+									<td>12</td>
+								</tr>
+								<tr>
+									<td>8/12/15</td>
+									<td>Odin State Bank - New patch panel</td>
+									<td>Inactive</td>
+									<td>12</td>
+								</tr>
+								<tr>
+									<td>8/4/15</td>
+									<td>Alliance Insurance - 2 cable drops</td>
+									<td>Active</td>
+									<td>12</td>
+								</tr>
+							</table>
 							<?php
 							break;
 						default:
