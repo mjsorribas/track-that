@@ -27,14 +27,13 @@
 	                <li class="accordian">
 	                	<a href="#">Projects</a>
 	                	<ul class="submenu">
+	                		<li><a href="#">Projects>Overview</a></li>
 	                		<li><a href="#">Projects>Add/Remove</a></li>
 	                		<li><a href="#">Projects>Change Status</a></li>
 	                	</ul>
 	                </li>
-	                
 	            </ul>
 	        </div>
-
 
 	        <!-- End left sidebar -->
 			<div class="col-md-offset-2 maincontent">
