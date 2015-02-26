@@ -27,8 +27,30 @@
 	        <!-- End left sidebar -->
 			<div class="col-md-offset-2 maincontent">
 				<!-- Page content goes here -->
-				<h1 class="page-header">Products</h1>
-			</div>
+				<h1 class="page-header">Add New Project</h1>
+				<div id="form-container">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="inpName">Name: </label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="inpName" placeholder="CTS Internal - 3 More APs">
+							</div>
+						</div>
+						<div class="form-group">
+						    <label class="control-label col-sm-2" for="pwd">Status:</label>
+						    <div class="col-sm-10"> 
+						      		<input type="radio" id="inpStatus" name="inpStatus" value="active" checked> Active <br />
+						      		<input type="radio" id="inpStatus" name="inpStatus" value="inactive"> Inactive
+						    </div>
+						</div>
+						<div class="form-group"> 
+						    <div class="col-sm-offset-2 col-sm-10">
+						      <button type="submit" class="btn btn-default">Submit</button>
+						    </div>
+						</div>
+					</form>
+				</div>
+			</div><!-- End maincontent -->
 		</div>
 	</div>
 	<?php require_once("template/footer.php"); ?>
