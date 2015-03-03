@@ -27,25 +27,10 @@
 	<?php require_once("template/navbar.php"); ?>
 
 	<div class="container-fluid"> <!-- container-fluid div should wrap everything under the top navbar -->
-	    <!-- Start left sidebar -->
 	    <div class="row">
-	        <div class="sidebar">
-	            <ul class="nav nav-sidebar">
-	                <li><a href="index.php">Overview</a></li>
-	                <li><a href="products.php">Products</a></li>
-
-	                <li class="active">
-	                	<a href="projects.php">
-	                		Projects <span class="sr-only">(current)</span>
-	                		<b class="caret"></b>
-	                	</a>
-	                </li>
-
-	                <li><a href="#">Projects>Add/Remove</a></li>
-	                <li><a href="#">Projects>Change Status</a></li>
-	            </ul>
-	        </div>
-	        <!-- End left sidebar -->
+	    	<!-- Output the sidebar from the template folder -->
+	        <?php require_once("template/sidebar.php"); ?>
+	        
 			<div class="col-md-offset-2 maincontent">
 				<!-- Page content goes here -->
 				<h1 class="page-header">Projects</h1>
