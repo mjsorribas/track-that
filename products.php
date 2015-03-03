@@ -30,7 +30,7 @@
 					<option value="1">Region 9 - 2 New Cameras</option>
 				</select>
 				<h2 class="sub-header">
-					Region 9 - 2 New Cameras
+					Jim Barta - 4 New Laptops
 					<a href="#"><button class="btn btn-primary btnExport">Export</button></a>
 				</h2>
 				<table class="table table-striped">
