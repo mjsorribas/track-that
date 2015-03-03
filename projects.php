@@ -54,8 +54,8 @@
 							Edit<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
-							<li role="presentation"><a href="#" role="menuitem">Add New</a></li>
-							<li role="presentation"><a href="#" role="menuitem">Change Status</a></li>
+							<li role="presentation"><a href="addproject.php" role="menuitem">Add New</a></li>
+							<li role="presentation"><a href="editproject.php" role="menuitem">Change Status</a></li>
 						</ul>
 					</li>
 				</ul>
