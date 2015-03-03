@@ -20,6 +20,11 @@
 			<div class="col-md-offset-2 maincontent">
 				<!-- Page content goes here -->
 				<h1 class="page-header">Export Products</h1>
+				<label>Select Project: </label>
+					<select>
+						<option value="12345">Jim Barta - 4 New Laptops</option>
+						<option value="23456">Region 9 - 2 New Cameras</option>
+					</select>
 
 			</div><!-- End maincontent -->
 		</div>
