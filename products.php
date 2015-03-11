@@ -30,7 +30,7 @@
 					// Establish connection to the DB
 					require_once("db/sql.php");
 					?>
-					
+
 					<select class="selectpicker">
 						<option value="0">Jim Barta - 4 New Laptops</option>
 						<option value="1">Region 9 - 2 New Cameras</option>
@@ -40,11 +40,12 @@
 					// Check if there's a project selected yet
 					if (isset($_GET['projid'])) {
 						// A project has been selected. Get SQL data for that project.						
-
 						$projId = $_GET['projid'];
 
 						// Get all columns in tbl_products for this project and sort by prod_id
 						$qryGetProductsByProject = "SELECT * FROM `tbl_products` WHERE `project_id` = " . $projId . " ORDER BY `prod_id` DESC";
+						//Execute query
+						$rsltProductsByProject = mysqli_query($conn,$qryGetProductsByProject);
 
 
 						?>
@@ -59,12 +60,18 @@
 								<th>Quantity</th>
 								<th>Added By</th>
 							</tr>
-							<tr>
-								<td>2/12/15 5:56pm</td>
-								<td>1234566-789</td>
-								<td>34</td>
-								<td>Ethan</td>
-							</tr>
+						<?php
+							// Loop through the results
+							while($row = mysqli_fetch_array($rsltProductsByProject)) {
+								// Manipulate the data 
+								echo "<tr>\n\t";
+								echo "<td>".date_format(date_create($row['added_on']),'n/j/y g:ia')."</td>\n";
+								echo "<td>".$row['part_num']."</td>\n";
+								echo "<td>".$row['qty']."</td>\n";
+								echo "<td>".$row['added_by']."</td>\n";
+								echo "</tr>\n";
+							}
+						?>							
 						</table>
 						<?php
 					} else {
