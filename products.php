@@ -59,11 +59,13 @@
 						$rsltProductsByProject = mysqli_query($conn,$qryGetProductsByProject);
 
 						// Get the first row of the result so we can ouput the project name below.
-						$firstRow = mysqli_fetch_row($rsltProductsByProject);
+						$firstRow = mysqli_fetch_assoc($rsltProductsByProject);
 
+						// Reset the result pointer to the first record after reading it. Otherwise, the loop below will skip the first record.
+						mysqli_data_seek($rsltProductsByProject, 0);
 						?>
 						<h2 class="sub-header">
-							<?php echo $firstRow[5]; ?>
+							<?php echo $firstRow['proj_name']; ?>
 							<a href="#"><button class="btn btn-primary btnExport">Export</button></a>
 						</h2>
 						<table class="table table-striped">
