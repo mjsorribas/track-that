@@ -24,19 +24,31 @@
 			<div class="col-md-offset-2 maincontent">
 				<!-- Page content goes here -->
 				<h1 class="page-header">Products</h1>
-				Select Project:
+				
 
 				<?php 
 					// Establish connection to the DB
 					require_once("db/sql.php");
-					?>
 
-					<select class="selectpicker">
-						<option value="0">Jim Barta - 4 New Laptops</option>
-						<option value="1">Region 9 - 2 New Cameras</option>
-					</select>
+					// Query: Get all active projects
+					$qryGetActiveProjects = "SELECT * FROM `tbl_projects` WHERE `proj_status`= 1";
 
-					<?php
+					// Execute the query
+					$rsltActiveProjects = mysqli_query($conn,$qryGetActiveProjects);
+
+					// Output a select element
+					echo "<select class='selectpicker' onchange='this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);'>\n\t";
+					
+					echo "<option value=''>Select a Project...</option>";
+					// Loop through the query results
+
+					while($row = mysqli_fetch_array($rsltActiveProjects)) {
+						// Make an option for the select with each row.
+						echo "<option value='products.php?projid=".$row['proj_id']."'>".$row['proj_name']."</option>\n";
+					}
+					// Close the select element
+					echo "</select>";
+
 					// Check if there's a project selected yet
 					if (isset($_GET['projid'])) {
 						// A project has been selected. Get SQL data for that project.						
