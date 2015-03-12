@@ -43,14 +43,27 @@
 						$projId = $_GET['projid'];
 
 						// Get all columns in tbl_products for this project and sort by prod_id
-						$qryGetProductsByProject = "SELECT * FROM `tbl_products` WHERE `project_id` = " . $projId . " ORDER BY `prod_id` DESC";
+						$qryGetProductsByProject = "SELECT 
+														p.prod_id, 
+														p.part_num, 
+														p.qty, 
+														p.added_on, 
+														u.user_name AS added_by_user, 
+														j.proj_name 
+													FROM `tbl_products` AS p 
+													INNER JOIN `tbl_users` AS u ON p.added_by = u.user_id 
+													INNER JOIN `tbl_projects` AS j ON p.project_id = j.proj_id 
+													WHERE p.project_id = ".$projId."  
+													ORDER BY `p`.`prod_id` ASC";
 						//Execute query
 						$rsltProductsByProject = mysqli_query($conn,$qryGetProductsByProject);
 
+						// Get the first row of the result so we can ouput the project name below.
+						$firstRow = mysqli_fetch_row($rsltProductsByProject);
 
 						?>
 						<h2 class="sub-header">
-							Jim Barta - 4 New Laptops
+							<?php echo $firstRow[5]; ?>
 							<a href="#"><button class="btn btn-primary btnExport">Export</button></a>
 						</h2>
 						<table class="table table-striped">
@@ -68,7 +81,7 @@
 								echo "<td>".date_format(date_create($row['added_on']),'n/j/y g:ia')."</td>\n";
 								echo "<td>".$row['part_num']."</td>\n";
 								echo "<td>".$row['qty']."</td>\n";
-								echo "<td>".$row['added_by']."</td>\n";
+								echo "<td>".$row['added_by_user']."</td>\n";
 								echo "</tr>\n";
 							}
 						?>							
