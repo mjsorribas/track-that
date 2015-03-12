@@ -86,6 +86,9 @@
 								echo "<td>".$row['added_by_user']."</td>\n";
 								echo "</tr>\n";
 							}
+
+							// Free the result set to free up memory.
+							mysqli_free_result($rsltProductsByProject);
 						?>							
 						</table>
 						<?php
@@ -95,7 +98,8 @@
 						
 						<?php
 					}
-
+					// Close the sql connection after we're done
+					mysqli_close($conn);
 				?>
 			</div>
 	    </div>
