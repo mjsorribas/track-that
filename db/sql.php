@@ -1,9 +1,8 @@
-<!--  
-	sql.php - Contains all the MySQL settings and some functions.
-	Created by: Dan Salmon
-	Created on: 3/11/15
--->
 <?php
+	// sql.php - Contains all the MySQL settings and some functions.
+	// Created by: Dan Salmon
+	// Created on: 3/11/15
+
 	// MySQL Settings
 	$servername = "localhost";
 	$user		= "root"; // WAMP: root

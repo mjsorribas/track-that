@@ -23,8 +23,7 @@
 	        <!-- End left sidebar -->
 			<div class="col-md-offset-2 maincontent">
 				<!-- Page content goes here -->
-				<h1 class="page-header">Products</h1>
-				
+				<h1 class="page-header">Products</h1>		
 
 				<?php 
 					// Establish connection to the DB
@@ -77,8 +76,10 @@
 						mysqli_data_seek($rsltProductsByProject, 0);
 						?>
 						<h2 class="sub-header">
-							<?php echo $firstRow['proj_name']; ?>
-							<a href="#"><button class="btn btn-primary btnExport">Export</button></a>
+							<?php echo $firstRow['proj_name']."\n"; ?>
+							<a href="#">
+								<button class="btn btn-primary btnExport">Export</button>
+							</a>
 						</h2>
 						<table class="table table-striped">
 							<tr>
@@ -90,9 +91,9 @@
 						<?php
 							// Loop through the results
 							while($row = mysqli_fetch_array($rsltProductsByProject)) {
-								// Manipulate the data 
+								// For each result from the mysql query, make a table row.
 								echo "<tr>\n\t";
-								echo "<td>".date_format(date_create($row['added_on']),'n/j/y g:ia')."</td>\n";
+								echo "<td>".date_format(date_create($row['added_on']),'n/j/y g:ia')."</td>\n"; // m/d/yy H:MMam
 								echo "<td>".$row['part_num']."</td>\n";
 								echo "<td>".$row['qty']."</td>\n";
 								echo "<td>".$row['added_by_user']."</td>\n";
@@ -106,9 +107,7 @@
 						<?php
 					} else {
 						// No project has been selected. Don't show anything but projects.
-						?>
-						
-						<?php
+
 					}
 					// Close the sql connection after we're done
 					mysqli_close($conn);
