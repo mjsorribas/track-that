@@ -17,25 +17,38 @@
 	    <div class="row">
 	        <?php require_once("template/sidebar.php"); ?>
 	        <!-- End left sidebar -->
+	        <?php
+	        if (isset($_GET['mode'])) {
+	        	switch ($_GET['mode']) {
+	        		case "add":
+	        			// User has submitted a new project. Process it.
+	        			$qryAddNewProject = "";
+	        			
+	        			break;
+	        		case "view":
+	        			break;
+	        		default: 
+
+	        	} // End switch
+	        } // End if
+
+	        ?>
 			<div class="col-md-offset-2 maincontent">
 				<!-- Page content goes here -->
 				<h1 class="page-header">Add New Project</h1>
 				<div id="form-container">
-					<form class="form-horizontal" role="form">
+				<?php var_dump($_POST); ?>
+					<form id="frmNewProject" class="form-horizontal" role="form" action="addproject.php?mode=add" method="POST">
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="inpName">Name: </label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="inpName" placeholder="CTS Internal - 3 More APs">
+								<input type="text" class="form-control" id="inpName" name="inpName" placeholder="CTS Internal - 3 More APs">
 							</div>
-						</div>
-						<div class="form-group">
 						    <label class="control-label col-sm-2" for="pwd">Status:</label>
 						    <div class="col-sm-10"> 
 						      		<input type="radio" id="inpStatus" name="inpStatus" value="active" checked> Active <br />
 						      		<input type="radio" id="inpStatus" name="inpStatus" value="inactive"> Inactive
 						    </div>
-						</div>
-						<div class="form-group"> 
 						    <div class="col-sm-offset-2 col-sm-10">
 						      <button type="submit" class="btn btn-default">Submit</button>
 						    </div>
