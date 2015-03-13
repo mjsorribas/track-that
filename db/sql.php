@@ -17,4 +17,20 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 	// We've connected successfully!
+
+
+	// QUERIES
+
+	$qryGetActiveProjects = "SELECT * 
+							FROM `tbl_projects` 
+							WHERE `proj_status`= 1";
+							
+	$qryGetActiveProjectProducts = "SELECT updated_on, 
+											proj_name, 
+        									proj_id,
+        									(SELECT COUNT(prod_id)
+        									FROM tbl_products 
+        									WHERE project_id=tbl_projects.proj_id)as productsPerProject
+									FROM tbl_projects
+									WHERE proj_status = 1"
 ?>
