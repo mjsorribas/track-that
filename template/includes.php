@@ -31,10 +31,6 @@ function formatTime ($dateTime) {
 *  PREPARED STATEMENTS
 *
 */
-
-
-
-
-
+$qryGetProjectsByStatus = "SELECT `proj_id`, `proj_name` FROM `tbl_projects` WHERE `proj_status`=?";
 
 ?>

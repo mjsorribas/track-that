@@ -32,24 +32,38 @@
 					// Establish connection to the DB
 					require_once("db/sql.php");
 
-					// Query: Get all active projects
-					$qryGetActiveProjects = "SELECT * FROM `tbl_projects` WHERE `proj_status`= 1";
 
-					// Execute the query
-					$rsltActiveProjects = mysqli_query($conn,$qryGetActiveProjects);
+					// Create a prepared statement
+					$stmtGetActiveProjects = mysqli_stmt_init($conn);
+					if (mysqli_stmt_prepare($stmtGetActiveProjects,$qryGetProjectsByStatus)) {
+						$activeStatus = 1;
 
-					// Output a select element
-					echo "<select class='selectpicker' onchange='this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);'>\n\t";
-					
-					echo "<option value=''>Select a Project...</option>";
-					// Loop through the query results
+						// Bind parameters for markers
+						mysqli_stmt_bind_param($stmtGetActiveProjects, "s", $activeStatus);
 
-					while($row = mysqli_fetch_array($rsltActiveProjects)) {
-						// Make an option for the select with each row.
-						echo "<option value='products.php?projid=".$row['proj_id']."'>".$row['proj_name']."</option>\n";
+						// Execute query
+						mysqli_stmt_execute($stmtGetActiveProjects);
+
+						// Bind result variables
+						mysqli_stmt_bind_result($stmtGetActiveProjects, $proj_id, $proj_name);
+
+						// Output a select element
+						echo "<select class='selectpicker' onchange='this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);'>\n\t";
+						
+						echo "<option value=''>Select a Project...</option>";
+						// Loop through the query results
+
+						while(mysqli_stmt_fetch($stmtGetActiveProjects)) {
+							// Make an option for the select with each row.
+							echo "<option value='products.php?projid=".$proj_id."'>".$proj_name."</option>\n";
+						}
+						// Close the select element
+						echo "</select>";
+
+
 					}
-					// Close the select element
-					echo "</select>";
+
+					
 
 					// Check if there's a project selected yet
 					if (isset($_GET['projid'])) {
