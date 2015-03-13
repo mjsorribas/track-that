@@ -20,12 +20,7 @@
 
 
 	// QUERIES
-
-	$qryGetActiveProjects = "SELECT * 
-							FROM `tbl_projects` 
-							WHERE `proj_status`= 1";
-							
-	$qryGetActiveProjectProducts = "SELECT updated_on, 
+	$qryGetActiveProjects = "SELECT updated_on, 
 											proj_name, 
         									proj_id,
         									(SELECT COUNT(prod_id)

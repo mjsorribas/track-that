@@ -24,8 +24,10 @@
     <link rel="stylesheet" href="css/projects.css">
 </head>
 <body>
-	<?php require_once("template/navbar.php"); ?>
-
+	<?php 
+		require_once("template/navbar.php"); 
+		require_once("db/sql.php");
+	?>
 	<div class="container-fluid"> <!-- container-fluid div should wrap everything under the top navbar -->
 	    <div class="row">
 	    	<!-- Output the sidebar from the template folder -->
@@ -72,16 +74,19 @@
 									<th>Name</th>
 									<th>Total Products</th>
 								</tr>
-								<tr>
-									<td>4/12/15</td>
-									<td><a href="#">Region 9 - 2 New Cameras</a></td>
-									<td>12</td>
-								</tr>
-								<tr>
-									<td>8/4/15</td>
-									<td><a href="#">Alliance Insurance - 2 cable drops</a></td>
-									<td>12</td>
-								</tr>
+								<?php
+
+								// Execute query stored in sql.php
+								$rsltActiveProjects = mysqli_query($conn, $qryGetActiveProjects);
+								// Loop through the results
+								while($row = mysqli_fetch_array($rsltActiveProjects)) {
+									// Make an option for the select with each row.
+									echo "<tr>\n\t";
+									echo "<td>".date_format(date_create($row['updated_on']),'n/j/y g:ia')."</td>\n";
+									echo "<td><a href='products.php?projid=".$row['proj_id']."'>".$row['proj_name']."</a></td>\n";
+									echo "<td>".$row['productsPerProject']."</td>";
+								}
+								?>
 							</table>
 							<?php
 							break;
