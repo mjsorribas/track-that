@@ -125,30 +125,20 @@
 									<th>Status</th>
 									<th>Total Products</th>
 								</tr>
-								<tr>
-									<td>4/12/15</td>
-									<td><a href="#">Region 9 - 2 New Cameras</a></td>
-									<td>Active</td>
-									<td>12</td>
-								</tr>
-								<tr>
-									<td>4/11/15</td>
-									<td><a href="#">MNRAA - Move cameras</a></td>
-									<td>Inactive</td>
-									<td>12</td>
-								</tr>
-								<tr>
-									<td>8/12/15</td>
-									<td><a href="#">Odin State Bank - New patch panel</a></td>
-									<td>Inactive</td>
-									<td>12</td>
-								</tr>
-								<tr>
-									<td>8/4/15</td>
-									<td><a href="#">Alliance Insurance - 2 cable drops</a></td>
-									<td>Active</td>
-									<td>12</td>
-								</tr>
+								<?php
+								// Execute query
+								$rsltAllProjects = mysqli_query($conn, $qryGetAllProjects);
+								// Loop through results
+								while($row = mysqli_fetch_array($rsltAllProjects)) {
+									echo "<tr>\n\t";
+									echo "<td>".date_format(date_create($row['updated_on']),'n/j/y g:ia')."</td>\n"; // TODO: Create custom date_format function with format constant.
+									echo "<td><a href='products.php?projid=".$row['proj_id']."'>".$row['proj_name']."</a></td>\n";
+									echo "<td>".$row['status']."</td>";
+									echo "<td>".$row['productsPerProject']."</td>";
+								}
+								// Free the resultset to free up memory.
+								mysqli_free_result($rsltAllProjects);
+								?>
 							</table>
 							<?php
 							break;
