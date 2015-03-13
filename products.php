@@ -14,7 +14,10 @@
 
 </head>
 <body>
-	<?php require_once("template/navbar.php"); ?>
+	<?php 
+		require_once("template/navbar.php"); 
+		require_once("template/includes.php");
+	?>
 
 	<div class="container-fluid"> <!-- container-fluid div should wrap everything under the top navbar -->
 	    <!-- Start left sidebar -->
@@ -93,7 +96,7 @@
 							while($row = mysqli_fetch_array($rsltProductsByProject)) {
 								// For each result from the mysql query, make a table row.
 								echo "<tr>\n\t";
-								echo "<td>".date_format(date_create($row['added_on']),'n/j/y g:ia')."</td>\n"; // m/d/yy H:MMam
+								echo "<td>".formatTime($row['added_on'])."</td>\n"; 
 								echo "<td>".$row['part_num']."</td>\n";
 								echo "<td>".$row['qty']."</td>\n";
 								echo "<td>".$row['added_by_user']."</td>\n";
