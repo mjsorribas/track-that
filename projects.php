@@ -75,17 +75,18 @@
 									<th>Total Products</th>
 								</tr>
 								<?php
-
 								// Execute query stored in sql.php
 								$rsltActiveProjects = mysqli_query($conn, $qryGetActiveProjects);
 								// Loop through the results
 								while($row = mysqli_fetch_array($rsltActiveProjects)) {
-									// Make an option for the select with each row.
+									// Make a table row with each row.
 									echo "<tr>\n\t";
-									echo "<td>".date_format(date_create($row['updated_on']),'n/j/y g:ia')."</td>\n";
+									echo "<td>".date_format(date_create($row['updated_on']),'n/j/y g:ia')."</td>\n"; // TODO: Create custom date_format function with format constant.
 									echo "<td><a href='products.php?projid=".$row['proj_id']."'>".$row['proj_name']."</a></td>\n";
 									echo "<td>".$row['productsPerProject']."</td>";
 								}
+								// Free the resultset to free up memory.
+								mysqli_free_result($rsltActiveProjects);
 								?>
 							</table>
 							<?php
@@ -98,16 +99,20 @@
 									<th>Name</th>
 									<th>Total Products</th>
 								</tr>
-								<tr>
-									<td>4/11/15</td>
-									<td><a href="#">MNRAA - Move cameras</a></td>
-									<td>12</td>
-								</tr>
-								<tr>
-									<td>8/12/15</td>
-									<td><a href="#">Odin State Bank - New patch panel</a></td>
-									<td>12</td>
-								</tr>
+								<?php
+								// Execute query
+								$rsltInactiveProjects = mysqli_query($conn, $qryGetInactiveProjects);
+
+								//Loop through the results
+								while($row = mysqli_fetch_array($rsltInactiveProjects)) {
+									echo "<tr>\n\t";
+									echo "<td>".date_format(date_create($row['updated_on']),'n/j/y g:ia')."</td>\n"; // TODO: Create custom date_format function with format constant.
+									echo "<td><a href='products.php?projid=".$row['proj_id']."'>".$row['proj_name']."</a></td>\n";
+									echo "<td>".$row['productsPerProject']."</td>";
+								}
+								// Free the resultset to free up memory.
+								mysqli_free_result($rsltInactiveProjects);
+								?>
 							</table>
 							<?php
 							break;
@@ -151,8 +156,9 @@
 							//Something went wrong.
 							echo "Something went wrong. Please go back to the home page and start over.";
 					}
+					// Close the connection to the database
+					mysqli_close($conn);
 				?>
-
 			</div>
 	    </div>
 	</div>
