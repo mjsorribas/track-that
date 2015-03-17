@@ -6,9 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Inventory System - Add Project</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/addproject.css"
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/sidebar.css"/>
+    <link rel="stylesheet" href="css/addproject.css"/>
 </head>
 <body>
 	<?php require_once("template/navbar.php"); ?>
@@ -22,8 +22,22 @@
 	        	switch ($_GET['mode']) {
 	        		case "add":
 	        			// User has submitted a new project. Process it.
-	        			$qryAddNewProject = "";
-	        			
+
+	        			// TODO: Santize project name input.
+	        			// Create variables for POST data. Will be used later when sanitizing input.
+	        			$newProjectName = $_POST['inpName'];
+	        			$newProjectStatus = $_POST['inpStatus'];
+	        			// TODO: Un-hardcode userid here.
+	        			$newProjectUser = 1;
+        				$qryCreateNewProject = "INSERT INTO tbl_projects (proj_name,
+													proj_status,
+													updated_by,
+													updated_on) 
+												VALUES ($newProjectName,
+														$newProjectStatus,
+														$newProjectUser,
+														NOW());";
+							
 	        			break;
 	        		case "view":
 	        			break;
@@ -37,7 +51,7 @@
 				<!-- Page content goes here -->
 				<h1 class="page-header">Add New Project</h1>
 				<div id="form-container">
-				<?php var_dump($_POST); ?>
+				<?php echo $qryCreateNewProject; ?>
 					<form id="frmNewProject" class="form-horizontal" role="form" action="addproject.php?mode=add" method="POST">
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="inpName">Name: </label>
