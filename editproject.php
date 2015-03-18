@@ -8,10 +8,14 @@
     <title>Inventory System - Edit Project</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/editproject.css"
+    <link rel="stylesheet" href="css/editproject.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" type="text/css">
 </head>
 <body>
-	<?php require_once("template/navbar.php"); ?>
+	<?php 
+		require_once("template/navbar.php"); 
+		require_once("db/sql.php");
+	?>
 	<div class="container-fluid"> <!-- container-fluid div should wrap everything under the top navbar -->
 	    <div class="row">
 	    	<!-- Output the template sidebar -->
@@ -21,12 +25,25 @@
 				<!-- Page content goes here -->
 				<h1 class="page-header">Edit Project</h1>
 					<!-- If we haven't selected a project yet, display a list of projects to edit. -->
-					<label>Select Project: </label>
-					<select>
-						<option value="12345">Jim Barta - 4 New Laptops</option>
-						<option value="23456">Region 9 - 2 New Cameras</option>
+					<select class='selectpicker' onchange="this.options[this.selectedIndex].value &amp;&amp; (window.location = this.options[this.selectedIndex].value);">
+						<option value="#">Select a Project...</option>
+						<?php
+							// Query the db for all projects
+							// TODO: Maybe - Sort projects by status and show groups with disabled option labels
+							$qryGetAllProjects = "SELECT proj_id, proj_name FROM tbl_projects ORDER BY proj_name ASC;";
+
+							// Execute query
+							$rsltAllProjects = mysqli_query($conn, $qryGetAllProjects);
+
+							// Loop through the results
+							while($row = mysqli_fetch_array($rsltAllProjects)) {
+								// For each project, do the following
+								echo "<option value=editproject.php?projid=".$row['proj_id'].">".$row['proj_name']."</option>\n";
+							}
+						?>
 					</select>
 					<br />
+
 					<div class="form-container">
 						<div class="panel panel-primary">
 							<div class="panel-heading">Project Options</div>
@@ -54,6 +71,7 @@
 							</div>
 						</div>
 					</div>
+
 			</div><!-- End maincontent -->
 		</div>
 	</div>
