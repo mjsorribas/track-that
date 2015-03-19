@@ -22,17 +22,15 @@
 	<div class="container-fluid"> <!-- container-fluid div should wrap everything under the top navbar -->
 	    <!-- Start left sidebar -->
 	    <div class="row">
-	    	<?php require_once("template/sidebar.php"); ?>
+	    	<?php
+	    	 	require_once("template/sidebar.php");
+				require_once("db/sql.php"); 
+			?>
 	        <!-- End left sidebar -->
 			<div class="col-md-offset-2 maincontent">
 				<!-- Page content goes here -->
 				<h1 class="page-header">Products</h1>		
-
 				<?php 
-					// Establish connection to the DB
-					require_once("db/sql.php");
-
-
 					// Create a prepared statement
 					$stmtGetActiveProjects = mysqli_stmt_init($conn);
 					if (mysqli_stmt_prepare($stmtGetActiveProjects,$qryGetProjectsByStatus)) {
@@ -59,12 +57,7 @@
 						}
 						// Close the select element
 						echo "</select>";
-
-
 					}
-
-					
-
 					// Check if there's a project selected yet
 					if (isset($_GET['projid'])) {
 						// A project has been selected. Get SQL data for that project.						
@@ -83,17 +76,25 @@
 													INNER JOIN `tbl_projects` AS j ON p.project_id = j.proj_id 
 													WHERE p.project_id = ".$projId."  
 													ORDER BY `p`.`prod_id` ASC";
+						// Get the name of the project in case there are no product results
+						$qryGetProjectName = "SELECT proj_name
+												FROM tbl_projects
+												WHERE proj_id =".$projId;
+						// Execute project name query
+						$rsltProjName = mysqli_query($conn, $qryGetProjectName);
+
+						// Get the project name from the one result
+						$projName = mysqli_fetch_assoc($rsltProjName)['proj_name'];
+
+						// Free the result set
+						mysqli_free_result($rsltProjName);
+
 						//Execute query
 						$rsltProductsByProject = mysqli_query($conn,$qryGetProductsByProject);
 
-						// Get the first row of the result so we can ouput the project name below.
-						$firstRow = mysqli_fetch_assoc($rsltProductsByProject);
-
-						// Reset the result pointer to the first record after reading it. Otherwise, the loop below will skip the first record.
-						mysqli_data_seek($rsltProductsByProject, 0);
 						?>
 						<h2 class="sub-header">
-							<?php echo $firstRow['proj_name']."\n"; ?>
+							<?php echo $projName."\n"; ?>
 							<a href="#">
 								<button class="btn btn-primary btnExport">Export</button>
 							</a>
