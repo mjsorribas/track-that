@@ -107,25 +107,31 @@
 								<th>Added By</th>
 							</tr>
 						<?php
-							// Loop through the results
-							while($row = mysqli_fetch_array($rsltProductsByProject)) {
-								// For each result from the mysql query, make a table row.
-								echo "<tr>\n\t";
-								echo "<td>".formatTime($row['added_on'])."</td>\n"; 
-								echo "<td>".$row['part_num']."</td>\n";
-								echo "<td>".$row['qty']."</td>\n";
-								echo "<td>".$row['added_by_user']."</td>\n";
-								echo "</tr>\n";
+							// Check if there were any results.
+							if (mysqli_num_rows($rsltProductsByProject) == 0) {
+								// There are no products for this project
+								?>
+								<tr>
+									<td colspan='4'>(No Products)</td>
+								</tr>
+								<?php
+							} else {
+								// There is at least one product for this project.
+								while($row = mysqli_fetch_array($rsltProductsByProject)) {
+									// For each result from the mysql query, make a table row.
+									echo "<tr>\n\t";
+									echo "<td>".formatTime($row['added_on'])."</td>\n"; 
+									echo "<td>".$row['part_num']."</td>\n";
+									echo "<td>".$row['qty']."</td>\n";
+									echo "<td>".$row['added_by_user']."</td>\n";
+									echo "</tr>\n";
+								}
 							}
-
 							// Free the result set to free up memory.
 							mysqli_free_result($rsltProductsByProject);
 						?>							
 						</table>
 						<?php
-					} else {
-						// No project has been selected. Don't show anything but projects.
-
 					}
 					// Close the sql connection after we're done
 					mysqli_close($conn);
