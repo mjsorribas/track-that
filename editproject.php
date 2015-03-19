@@ -44,35 +44,35 @@
 					</select>
 					<br />
 					<br />
+					<?php 
+						// Check if a project has been selected to edit. If not, don't show the form.
+						if (isset($_GET['projid'])) {
+							// A project has been chosen.
+							
+							$qryGetProjectInfo = "SELECT 
+														proj_id,
+														updated_on, 
+														tbl_users.user_name as updated_by_user,
+														proj_name, 
+			        									tbl_projstatuses.status,
+			        									(SELECT COUNT(prod_id)
+			        									FROM tbl_products 
+			        									WHERE project_id=tbl_projects.proj_id)as productsPerProject
+												FROM tbl_projects
+												INNER JOIN tbl_projstatuses
+												ON tbl_projects.proj_status=tbl_projstatuses.id
+												INNER JOIN tbl_users
+												ON tbl_projects.updated_by=tbl_users.user_id 
+												WHERE proj_id=".$_GET['projid'];
+							// Execute query
+							$rsltProjectInfo = mysqli_query($conn,$qryGetProjectInfo);
 
-					<div class="form-container">
-						<div class="panel panel-primary">
-							<div class="panel-heading">Project Options</div>
-							<div class="panel-body">
-									<form class="form-horizontal" role="form">
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="inpName">Name: </label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inpName" value="Jim Barta - 4 New Laptops">
-											</div>
-										</div>
-										<div class="form-group">
-										    <label class="control-label col-sm-2" for="pwd">Status:</label>
-										    <div class="col-sm-10"> 
-										      		<input type="radio" id="inpStatus" name="inpStatus" value="active" checked> Active <br />
-										      		<input type="radio" id="inpStatus" name="inpStatus" value="inactive"> Inactive
-										    </div>
-										</div>
-										<div class="form-group"> 
-										    <div class="col-sm-offset-2 col-sm-10">
-										      <button type="submit" class="btn btn-default">Submit</button>
-										    </div>
-										</div>
-									</form>
-							</div>
-						</div>
-					</div>
+							// Assign variable to the one row
+							$rowProjectInfo = mysqli_fetch_array($rsltProjectInfo);
+							
 
+						} // End if
+					?>
 			</div><!-- End maincontent -->
 		</div>
 	</div>
