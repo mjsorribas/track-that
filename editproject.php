@@ -15,6 +15,7 @@
 	<?php 
 		require_once("template/navbar.php"); 
 		require_once("db/sql.php");
+		require_once("template/includes.php");
 	?>
 	<div class="container-fluid"> <!-- container-fluid div should wrap everything under the top navbar -->
 	    <div class="row">
@@ -69,8 +70,33 @@
 
 							// Assign variable to the one row
 							$rowProjectInfo = mysqli_fetch_array($rsltProjectInfo);
-							
-
+							?>
+							<table class="table table-striped">
+								<tr>
+									<th>Last Updated</th>
+									<th>Updated By</th>
+									<th>Project Name</th>
+									<th>Status</th>
+									<th>Total Products</th>
+								</tr>
+								<tr>
+								<?php
+									echo "<td>".formatTime($rowProjectInfo['updated_on'])."</td>";
+									echo "<td>".$rowProjectInfo['updated_by_user']."</td>";
+									echo "<td><input class='form-control' type='text' value='".htmlentities($rowProjectInfo['proj_name'])."'/></td>";
+									?>
+									<td>
+										<select id="inpStatus">
+											<option value="1" <?php echo $rowProjectInfo['status']=="Active" ? "selected" : ""; ?>>Active</option>
+											<option value="2" <?php echo $rowProjectInfo['status']=="Inactive" ? "selected" : ""; ?>>Inactive</option>
+										</select>
+									</td>
+									<?php
+									echo "<td><a href=products.php?projid=".$rowProjectInfo['proj_id'].">".$rowProjectInfo['productsPerProject']."</a></td>";
+								?>
+								</tr>
+							</table>
+							<?php
 						} // End if
 					?>
 			</div><!-- End maincontent -->
