@@ -46,7 +46,24 @@
 					<br />
 					<br />
 					<?php 
+						if (isset($_GET['action'])) {
+							// Action is set. Check if form has been submitted.
+							if ($_GET['action'] == "update") {
+								// Form has been submitted. Process the changes.
+							} else {
+								// 
+							}
+
+
+						} else {
+							// ?action is not set. Redirect to default action.
+
+						}
+
+
 						// Check if a project has been selected to edit. If not, don't show the form.
+
+
 						if (isset($_GET['projid'])) {
 							// A project has been chosen.
 							
@@ -70,34 +87,40 @@
 
 							// Assign variable to the one row
 							$rowProjectInfo = mysqli_fetch_array($rsltProjectInfo);
+							
 							?>
-							<table class="table table-striped">
-								<tr>
-									<th>Last Updated</th>
-									<th>Updated By</th>
-									<th>Project Name</th>
-									<th>Status</th>
-									<th>Total Products</th>
-								</tr>
-								<tr>
-								<?php
-									echo "<td>".formatTime($rowProjectInfo['updated_on'])."</td>";
-									echo "<td>".$rowProjectInfo['updated_by_user']."</td>";
-									echo "<td><input class='form-control' type='text' value='".htmlentities($rowProjectInfo['proj_name'])."'/></td>";
-									?>
-									<td>
-										<select id="inpStatus">
-											<option value="1" <?php echo $rowProjectInfo['status']=="Active" ? "selected" : ""; ?>>Active</option>
-											<option value="2" <?php echo $rowProjectInfo['status']=="Inactive" ? "selected" : ""; ?>>Inactive</option>
-										</select>
-									</td>
+							<form method="POST" action="editproject.php?action=update" id="frmUpdateProject" role="form"> 
+								<table class="table table-striped">
+									<tr>
+										<th>Last Updated</th>
+										<th>Updated By</th>
+										<th>Project Name</th>
+										<th>Status</th>
+										<th>Total Products</th>
+									</tr>
+									<tr>
 									<?php
-									echo "<td><a href=products.php?projid=".$rowProjectInfo['proj_id'].">".$rowProjectInfo['productsPerProject']."</a></td>";
+										echo "<td>".formatTime($rowProjectInfo['updated_on'])."</td>";
+										echo "<td>".$rowProjectInfo['updated_by_user']."</td>";
+										echo "<td><input for='frmUpdateProject' id='inpProjName' name='inpProjName' form='frmUpdateProject' class='form-control' type='text' value='".htmlentities($rowProjectInfo['proj_name'])."'/></td>";
+										?>
+										<td>
+											<select id="inpStatus" form="frmUpdateProject" name='inpStatus'>
+												<option value="1" <?php echo $rowProjectInfo['status']=="Active" ? "selected" : ""; ?>>Active</option>
+												<option value="2" <?php echo $rowProjectInfo['status']=="Inactive" ? "selected" : ""; ?>>Inactive</option>
+											</select>
+										</td>
+										<?php
+										echo "<td><a href=products.php?projid=".$rowProjectInfo['proj_id'].">".$rowProjectInfo['productsPerProject']."</a></td>";
+									?>
+									</tr>
+								</table>
+								<?php echo "<input name='inpProjId' id='inpProjId' type='hidden' form='frmUpdateProject' value='".$rowProjectInfo['proj_id']."'/>";
 								?>
-								</tr>
-							</table>
+								<input class="btn btn-primary" type="submit" form="frmUpdateProject" value="Save" />
+							</form>
 							<?php
-						} // End if
+						}
 					?>
 			</div><!-- End maincontent -->
 		</div>
