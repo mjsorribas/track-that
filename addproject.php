@@ -86,7 +86,7 @@
 							</div>
 							<!-- Alert ends here -->
 							<?php
-							echo $qryCreateNewProject;
+							echo $qryCreateNewProject; // DEBUG
 						}
 					}
 
