@@ -60,7 +60,19 @@
 													WHERE proj_id =".$_POST['inpProjId'];
 								$rsltUpdateProject = mysqli_query($conn, $qryUpdateProject);
 								if ($rsltUpdateProject) {
-									echo "Updated successfully.";
+									?>
+									<div class="alert alert-success alert-dismissible" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										<strong>Success!</strong> Project was updated successfully.
+									</div>
+									<?php
+								} else {
+									?>
+									<div class="alert alert-danger alert-dismissible" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									    <strong>Error</strong> There was a problem creating a new project. Please try again.
+									</div>
+									<?php
 								}
 							}
 
