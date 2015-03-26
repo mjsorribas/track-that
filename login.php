@@ -6,8 +6,20 @@
 	* Created by: Dan Salmon
 	*/
 
-	// REQUIRES
+	//////////  REQUIRES   ///////////
 	require_once("db/sql.php");
+
+	//////////  VARIABLES  ///////////
+	$defaultPage = "index.php"; // Which page to re-direct to after the user has been authenticated.
+
+	// Start the session
+	session_start();
+
+	// Check if the user is already logged in.
+	if (isset($_SESSION['authenticated']) && ($_SESSION['authenticated'] == true)) {
+		// User is already logged in. Send them to the default page.
+		header('Location: '.$defaultPage);
+	}
 
 	// Check for login attempt and process any.
 	if (!empty($_POST)) {
@@ -20,19 +32,24 @@
 
 		if (!$filteredEmail == false) {
 			// The email has been validated. Continue the checking process.
-			
 			// Query the database and see what the password hash should be for this user.
 			$qryGetPassHash = "SELECT * FROM tbl_users WHERE email='".$filteredEmail."'";
-			var_dump($qryGetPassHash);
+
 			// Execute the query.
 			$rowGetPassHash = mysqli_fetch_array(mysqli_query($conn,$qryGetPassHash));
 
-			var_dump($rowGetPassHash['pwd_hash']);
-			var_dump(md5($filteredPass));
 			// Compare what's stored in the database to what was input
 			if ($rowGetPassHash['pwd_hash'] == md5($filteredPass)) {
 				// User has been authenticated.
-				echo "User authenticated.";
+
+				// Set session variables that will be available to all pages.
+				$_SESSION['authenticated'] = true;
+				$_SESSION['userID'] = $rowGetPassHash['user_id'];
+				$_SESSION['userName'] = $rowGetPassHash['user_name'];
+
+				// Re-direct the user to the default page now that they're authenticated.
+				header('Location: '.$defaultPage);
+
 			} else {
 				// Password failed check.
 				echo "Wrong password.";
