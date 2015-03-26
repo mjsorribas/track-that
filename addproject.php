@@ -33,8 +33,7 @@
 	        			// Create variables for POST data. Will be used later when sanitizing input.
 	        			$newProjectName = $_POST['inpName'];
 	        			$newProjectStatus = $_POST['inpStatus'];
-	        			// TODO: Un-hardcode userid here.
-	        			$newProjectUser = 1;
+	        			$newProjectUser = $_SESSION['userID'];
         				$qryCreateNewProject = "INSERT INTO tbl_projects (proj_name,
 													proj_status,
 													updated_by,
