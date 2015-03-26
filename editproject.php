@@ -19,8 +19,6 @@
 		require_once("template/navbar.php"); 
 		require_once("db/sql.php");
 		require_once("template/includes.php");
-		// TODO CHANGE THIS USER ID
-		$userID = 1;
 	?>
 	<div class="container-fluid"> <!-- container-fluid div should wrap everything under the top navbar -->
 	    <div class="row">
@@ -58,7 +56,7 @@
 								$qryUpdateProject = "UPDATE tbl_projects
 													SET proj_name ='".$_POST['inpProjName']."',
 														proj_status =".$_POST['inpStatus'].",
-														updated_by =".$userID.",
+														updated_by =".$_SESSION['userID'].",
 														updated_on = NOW()
 													WHERE proj_id =".$_POST['inpProjId'];
 								$rsltUpdateProject = mysqli_query($conn, $qryUpdateProject);
