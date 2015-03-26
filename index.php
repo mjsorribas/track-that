@@ -3,6 +3,9 @@
         Created on: 2/17/15
         Created by: Dan
 -->
+<?php 
+    require_once('template/security.php');
+?>
     <head>
         <meta charset="UTF-8">
         <title>Inventory System</title>
