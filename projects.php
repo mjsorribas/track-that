@@ -84,7 +84,7 @@
 								while($row = mysqli_fetch_array($rsltActiveProjects)) {
 									// Make a table row with each row.
 									echo "<tr>\n\t";
-									echo "<td>".formatTime($row['updated_on'])."</td>\n"; // TODO: Create custom date_format function with format constant.
+									echo "<td>".formatTime($row['updated_on'])."</td>\n";
 									echo "<td><a href='products.php?projid=".$row['proj_id']."'>".$row['proj_name']."</a></td>\n";
 									echo "<td>".$row['productsPerProject']."</td>";
 								}
@@ -109,7 +109,7 @@
 								//Loop through the results
 								while($row = mysqli_fetch_array($rsltInactiveProjects)) {
 									echo "<tr>\n\t";
-									echo "<td>".formatTime($row['updated_on'])."</td>\n"; // TODO: Create custom date_format function with format constant.
+									echo "<td>".formatTime($row['updated_on'])."</td>\n";
 									echo "<td><a href='products.php?projid=".$row['proj_id']."'>".$row['proj_name']."</a></td>\n";
 									echo "<td>".$row['productsPerProject']."</td>";
 								}
@@ -134,7 +134,7 @@
 								// Loop through results
 								while($row = mysqli_fetch_array($rsltAllProjects)) {
 									echo "<tr>\n\t";
-									echo "<td>".formatTime($row['updated_on'])."</td>\n"; // TODO: Create custom date_format function with format constant.
+									echo "<td>".formatTime($row['updated_on'])."</td>\n";
 									echo "<td><a href='products.php?projid=".$row['proj_id']."'>".$row['proj_name']."</a></td>\n";
 									echo "<td>".$row['status']."</td>";
 									echo "<td>".$row['productsPerProject']."</td>";
