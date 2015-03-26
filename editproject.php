@@ -3,6 +3,9 @@
 	Created On: 3/3/15
 	Created by: Dan
 -->
+<?php 
+    require_once('template/security.php');
+?>
 <head>
     <meta charset="UTF-8">
     <title>Inventory System - Edit Project</title>

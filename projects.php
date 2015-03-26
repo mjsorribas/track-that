@@ -4,6 +4,8 @@
 		Created By: Dan
 -->
 <?php
+    require_once('template/security.php');
+
 	// If there's no view set, which one should we re-direct to?
 	$DEFAULT_TAB = "active";
 	

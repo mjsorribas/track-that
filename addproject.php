@@ -3,6 +3,9 @@
 	Created On: 2/26/15
 	Created by: Dan
 -->
+<?php 
+    require_once('template/security.php');
+?>
 <head>
     <meta charset="UTF-8">
     <title>Inventory System - Add Project</title>
