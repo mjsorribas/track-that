@@ -52,15 +52,14 @@
 
 			} else {
 				// Password failed check.
-				echo "Wrong password.";
+				$error = "invalid_login";
 			}
 		} else {
 			// Email failed validation
-			echo "not an email.";
+			$error = "invalid_email";
 			// Redirect to login failure page.
 		}
 	}
-
 ?>
 <html>
 	<head>
@@ -72,13 +71,35 @@
     	<link rel="stylesheet" href="css/login.css">
 
     	<!-- Scripts -->
-
 	</head>
 	<body>
 		<!-- 
 			Page copied from Bootstrap example (http://getbootstrap.com/examples/signin/)
 			licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 		-->
+		<?php
+			if (isset($error)) {
+				// There was an error.
+				?>
+				<div class="row" style="width: 25%;margin:auto;">
+					<div class="alert alert-danger alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<?php
+						switch ($error) {
+							case "invalid_login":
+								echo "<strong>Error</strong> Invalid email/password combination. Please try again.\n";
+								break;
+							case "invalid_email":
+								echo "<strong>Error</strong> Please enter a valid email.\n";
+								break;
+							default: 
+						}
+				?>
+				</div>
+				<?php
+			}
+		?>
+		</div>
 		<div class="container">
 	    	<form class="form-signin" action="login.php" method="POST">
 		        <h2 class="form-signin-heading">Please sign in</h2>
