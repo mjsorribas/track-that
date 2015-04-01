@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/sidebar.css">
         <link rel="stylesheet" href="css/index.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
     </head>
     <body>
         <?php require_once("template/navbar.php"); ?>
