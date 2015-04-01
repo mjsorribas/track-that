@@ -1,12 +1,26 @@
-<!-- Start template/sidebar.php -->
-<div class="sidebar">
-    <ul class="nav nav-sidebar">
-        <li><a href="index.php">Overview</a></li>
-        <li><a href="products.php">Products</a></li>
-        <!--li><a href="exportproducts.php">Products>Export</a></li-->
-        <li><a href="projects.php?view=active">Projects>Overview</a></li>
-		<li><a href="addproject.php">Projects>Add</a></li>
-		<li><a href="editproject.php">Projects>Change Status</a></li>
-    </ul>
+<div class="nav-side-menu">
+<!--div class="brand">Brand Logo</div-->
+	<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <div class="menu-list">
+        <ul id="menu-content" class="menu-content out">
+            <li>
+              <a href="#">
+              <i class="fa fa-dashboard fa-lg"></i> Overview
+              </a>
+            </li>
+            <li>
+            	<a href="#">
+            		<i class="fa fa-user fa-lg"></i> Products
+            	</a>
+            </li>
+            <li data-toggle="collapse" data-target="#service" class="collapsed">
+            	<a href="#"><i class="fa fa-globe fa-lg"></i> Projects<span class="arrow"></span></a>
+            </li>  
+            <ul class="sub-menu collapse" id="service">
+              <li>Overview</li>
+              <li>Add Project</li>
+              <li>Edit Project</li>
+            </ul>
+        </ul>
+ 	</div>
 </div>
-<!-- End template/sidebar.php -->
