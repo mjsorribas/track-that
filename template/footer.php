@@ -6,14 +6,14 @@
         <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
         <script type="text/javascript">
 
-			$(document).ready(function(){
+			/*$(document).ready(function(){
 			    $('ul.submenu').hide();
 			});
 
 			$('li.accordian').click(function() {
 			    $(this).find('ul').slideToggle();
 			});
-
+            */
         </script>
     </body>
 </html>
