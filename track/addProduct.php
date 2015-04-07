@@ -12,11 +12,29 @@
 	<title>Add Product</title>
 	<meta charset="UTF-8">
     <link rel="stylesheet" href="../backend/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../backend/css/bootstrap-select.min.css" type="text/css">
 </head>
 <body>
 
-	<form method="POST" action="addProduct.php" id="frmAddProduct" role="form"> 							
+	<form method="POST" action="addProduct.php" id="frmAddProduct" role="form" class="form-horizontal"> 	
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="inpProdNum">Product Number</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="inpProdNum" name="inpProdNum" placeholder="1234ABCD">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inpProject" class="col-sm-2 control-label">Project</label>
+			<div class="col-sm-10">
+				<select id="inpProject" class='selectpicker'>
+					<option>Project 1</option>
+					<option>Project 2</option>
+				</select>
+			</div>
+
+		</div>
 		<input class="btn btn-primary" type="submit" form="frmAddProduct" value="Save" />
+
 	</form>
 
 	<script type="text/javascript" src="../backend/js/jquery-1.11.2.min.js"></script>
