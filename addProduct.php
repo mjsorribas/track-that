@@ -11,8 +11,8 @@
 <head>
 	<title>Add Product</title>
 	<meta charset="UTF-8">
-    <link rel="stylesheet" href="../backend/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../backend/css/bootstrap-select.min.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" type="text/css">
 </head>
 <body>
 
@@ -34,11 +34,10 @@
 
 		</div>
 		<input class="btn btn-primary" type="submit" form="frmAddProduct" value="Save" />
-
 	</form>
 
-	<script type="text/javascript" src="../backend/js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 	<!-- jQuery must be loaded first for Bootstrap to not complain -->
-    <script type="text/javascript" src="../backend/js/bootstrap-3.3.2.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-3.3.2.min.js"></script>
 
 </body>
