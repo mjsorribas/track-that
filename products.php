@@ -25,6 +25,7 @@
 	    <!-- Start left sidebar -->
 	    <div class="row">
 	    	<?php
+	    		$sidebarActivePage = "products";
 	    	 	require_once("template/sidebar.php");
 				require_once("db/sql.php"); 
 			?>
