@@ -5,9 +5,9 @@
     <div class="menu-list">
         <ul id="menu-content" class="menu-content out">
             <li class=<?php echo ($sidebarActivePage == "overview" ? "active":""); ?>>
-              <a href="index.php">
-              <i class="fa fa-dashboard fa-lg"></i> Overview
-              </a>
+                <a href="index.php">
+                    <i class="fa fa-dashboard fa-lg"></i> Overview
+                </a>
             </li>
             <li class=<?php echo ($sidebarActivePage == "products" ? "active" : ""); ?>>
             	<a href="products.php">
@@ -17,11 +17,21 @@
             <li data-toggle="collapse" data-target="#service" class="collapsed">
             	<a href="#"><i class="fa fa-globe fa-lg"></i> Projects<span class="arrow"></span></a>
             </li>  
-            <ul class="sub-menu collapse" id="service">
-              <li>Overview</li>
+            <ul <?php 
+                        if ($sidebarActivePage == "projects-overview" || $sidebarActivePage == "projects-add" || $sidebarActivePage == "sidebar-edit") {
+                          // If it's any project page, do the following.
+                          echo "class='sub-menu active'"; 
+                        } else {
+                          // It's not a project page.
+                          echo "class='sub-menu collapse'";
+                        }
+                      ?> id="service">
+              <li class="active">
+                  <a href="">Overview</a>
+              </li>
               <li>Add Project</li>
               <li>Edit Project</li>
             </ul>
         </ul>
- 	</div>
+    </div>
 </div>
