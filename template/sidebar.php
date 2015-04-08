@@ -1,15 +1,16 @@
+
 <div class="nav-side-menu">
 <!--div class="brand">Brand Logo</div-->
 	<!--i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i-->
     <div class="menu-list">
         <ul id="menu-content" class="menu-content out">
-            <li>
-              <a href="#">
+            <li class=<?php echo ($sidebarActivePage == "overview" ? "active":""); ?>>
+              <a href="index.php">
               <i class="fa fa-dashboard fa-lg"></i> Overview
               </a>
             </li>
-            <li>
-            	<a href="#">
+            <li class=<?php echo ($sidebarActivePage == "products" ? "active" : ""); ?>>
+            	<a href="products.php">
             		<i class="fa fa-user fa-lg"></i> Products
             	</a>
             </li>

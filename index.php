@@ -20,7 +20,10 @@
         <div class="container-fluid"> <!-- container-fluid div should wrap everything under the top navbar -->
             <div class="row">
                 <!-- Output the sidebar from the template folder -->
-                <?php require_once("template/sidebar.php"); ?>
+                <?php 
+                    $sidebarActivePage = "overview";
+                    require_once("template/sidebar.php"); 
+                ?>
                 <div class="col-md-offset-2 maincontent">
                     <h1 class="page-header">Overview</h1>
                     <p>Ideas for information here:</p>
