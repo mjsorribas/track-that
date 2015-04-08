@@ -1,3 +1,6 @@
+// VARIABLES
+@parentItemColor: #828E9C;
+
 .nav-side-menu {
   overflow: auto;
   font-family: verdana;
@@ -41,7 +44,8 @@
 }
 .nav-side-menu ul .active,
 .nav-side-menu li .active {
-  background-color: #4f5b69;
+  background-color: lighten(@parentItemColor,10%);
+  //background-color: #fff;
 }
 .nav-side-menu ul .sub-menu li,
 .nav-side-menu li .sub-menu li {
