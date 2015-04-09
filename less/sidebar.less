@@ -20,7 +20,11 @@
     font-size: 14px;
   }
 }
-
+.nav-side-menu ul .active,
+.nav-side-menu li .active {
+  background-color: lighten(@parentItemColor,10%);
+  //background-color: #fff;
+}
 .nav-side-menu .toggle-btn {
   display: none;
 }
@@ -42,11 +46,7 @@
   vertical-align: middle;
   float: right;
 }
-.nav-side-menu ul .active,
-.nav-side-menu li .active {
-  background-color: lighten(@parentItemColor,10%);
-  //background-color: #fff;
-}
+
 .nav-side-menu ul .sub-menu li,
 .nav-side-menu li .sub-menu li {
   background-color: #181c20;
@@ -54,6 +54,9 @@
   line-height: 28px;
   border-bottom: 1px solid #23282e;
   margin-left: 0px;
+  &.active {
+    background-color: lighten(@parentItemColor,10%);
+  }
 }
 .nav-side-menu ul .sub-menu li:hover,
 .nav-side-menu li .sub-menu li:hover {
