@@ -8,7 +8,8 @@
 	*
 	*/
 
-	session_start();
+	require_once("template/security.php");
+	require_once("db/sql.php");
 ?>
 <head>
 	<title>Add Product</title>
@@ -36,8 +37,19 @@
 			<label for="inpProject" class="col-sm-2 control-label">Project</label>
 			<div class="col-sm-10">
 				<select id="inpProject" class='selectpicker'>
-					<option>Project 1</option>
-					<option>Project 2</option>
+				<?php
+					// Query the db for all active projects.
+					$qryGetActiveProejects = "SELECT * FROM tbl_projects WHERE proj_status = 1";
+					// Execute query
+					$rsltActiveProjects = mysqli_query($conn, $qryGetActiveProjects);
+
+					// Loop through the results
+					while($row = mysqli_fetch_array($rsltActiveProjects)) {
+					// For each project, do the following
+						echo "<option>".$row['proj_name']."</option>\n";
+					}
+
+				?>
 				</select>
 			</div>
 
