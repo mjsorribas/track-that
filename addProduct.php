@@ -7,15 +7,19 @@
 	*	Created by: Dan Salmon
 	*
 	*/
+
+	session_start();
 ?>
 <head>
 	<title>Add Product</title>
 	<meta charset="UTF-8">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/bootstrap-select.min.css" type="text/css">
+    <link rel="stylesheet" href="css/addproduct.css" type="text/css">
 </head>
 <body>
-
+	<?php require_once("template/navbar.php"); ?>
+	<div class="mainrow">
 	<form method="POST" action="addProduct.php" id="frmAddProduct" role="form" class="form-horizontal"> 	
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="inpProdNum">Product Number</label>
@@ -35,6 +39,7 @@
 		</div>
 		<input class="btn btn-primary" type="submit" form="frmAddProduct" value="Save" />
 	</form>
+	</div>
 
 	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 	<!-- jQuery must be loaded first for Bootstrap to not complain -->
