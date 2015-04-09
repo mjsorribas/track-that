@@ -26,7 +26,9 @@
                           echo "class='sub-menu collapse'";
                         }
                       ?> id="service">
-              <li class="active">
+              <?php
+                echo ($sidebarActivePage == "projects-overview" ? "<li class='active'>" : "<li>");
+              ?>
                   <a href="projects.php">Overview</a>
               </li>
               <li>

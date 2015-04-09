@@ -22,7 +22,10 @@
 	<div class="container-fluid"> <!-- container-fluid div should wrap everything under the top navbar -->
 	    <!-- Start left sidebar -->
 	    <div class="row">
-	        <?php require_once("template/sidebar.php"); ?>
+	        <?php 
+	        	$sidebarActivePage = "projects-add";
+	        	require_once("template/sidebar.php"); 
+	        ?>
 	        <!-- End left sidebar -->
 	        <?php
 	        if (isset($_GET['mode'])) {
