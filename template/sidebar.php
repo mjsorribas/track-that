@@ -31,10 +31,16 @@
               ?>
                   <a href="projects.php">Overview</a>
               </li>
-              <li>
+
+              <?php
+                echo ($sidebarActivePage == "projects-add" ? "<li class='active'>" : "<li>");
+              ?>
                   <a href="addProject.php">Add Project</a>
               </li>
-              <li>
+
+              <?php
+                echo ($sidebarActivePage == "projects-edit" ? "<li class='active'>" : "<li>");
+              ?>
                 <a href="editProject.php">Edit Project</a>
               </li>
             </ul>
