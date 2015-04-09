@@ -27,10 +27,14 @@
                         }
                       ?> id="service">
               <li class="active">
-                  <a href="">Overview</a>
+                  <a href="projects.php">Overview</a>
               </li>
-              <li>Add Project</li>
-              <li>Edit Project</li>
+              <li>
+                  <a href="addProject.php">Add Project</a>
+              </li>
+              <li>
+                <a href="editProject.php">Edit Project</a>
+              </li>
             </ul>
         </ul>
     </div>
