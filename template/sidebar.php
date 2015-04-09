@@ -18,7 +18,7 @@
             	<a href="#"><i class="fa fa-globe fa-lg"></i> Projects<span class="arrow"></span></a>
             </li>  
             <ul <?php 
-                        if ($sidebarActivePage == "projects-overview" || $sidebarActivePage == "projects-add" || $sidebarActivePage == "sidebar-edit") {
+                        if ($sidebarActivePage == "projects-overview" || $sidebarActivePage == "projects-add" || $sidebarActivePage == "projects-edit") {
                           // If it's any project page, do the following.
                           echo "class='sub-menu active'"; 
                         } else {

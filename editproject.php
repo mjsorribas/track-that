@@ -24,7 +24,10 @@
 	<div class="container-fluid"> <!-- container-fluid div should wrap everything under the top navbar -->
 	    <div class="row">
 	    	<!-- Output the template sidebar -->
-	        <?php require_once("template/sidebar.php"); ?>
+	        <?php
+	        	$sidebarActivePage = "projects-edit"; 
+	        	require_once("template/sidebar.php"); 
+	        ?>
 
 			<div class="col-md-offset-2 maincontent">
 				<!-- Page content goes here -->
