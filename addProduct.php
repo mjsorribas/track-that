@@ -31,16 +31,16 @@
 	<!--div class="container center_container col-md-8 col-md-offset-2"-->
 		<div id="mainrow" class="row">
 			<form method="POST" action="addProduct.php" id="frmAddProduct" role="form" class="form-horizontal"> 	
-				<div class="row">
-					<div class="form-group col-xs-10 col-lg-5">
+				<div class="row col-xs-10 col-xs-offset-1 col-lg-5">
+					<div class="form-group">
 						<label class="control-label" for="inpProdNum">Product Number</label>
 						<div class="">
 							<input type="text" class="form-control" id="inpProdNum" name="inpProdNum" placeholder="1234ABCD">
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="form-group col-xs-10 col-lg-5">
+				<div class="row col-xs-10 col-xs-offset-1 col-lg-5">
+					<div class="form-group">
 						<label for="inpProject" class="control-label">Project</label>
 						<div class="">
 							<select id="inpProject" class='selectpicker'>
@@ -61,7 +61,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row col-xs-offset-2">
+				<div class="row col-xs-offset-4">
 					<input class="btn btn-primary" type="submit" form="frmAddProduct" value="Save" />
 				</div>
 			</form>
