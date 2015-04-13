@@ -22,42 +22,51 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/bootstrap-select.min.css" type="text/css">
     <link rel="stylesheet" href="css/addproduct.css" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
 	<?php require_once("template/navbar.php"); ?>
-	<div class="mainrow">
-	<form method="POST" action="addProduct.php" id="frmAddProduct" role="form" class="form-horizontal"> 	
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="inpProdNum">Product Number</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" id="inpProdNum" name="inpProdNum" placeholder="1234ABCD">
-			</div>
+	
+	<div class="container center_container">
+	<!--div class="container center_container col-md-8 col-md-offset-2"-->
+		<div id="mainrow" class="row">
+			<form method="POST" action="addProduct.php" id="frmAddProduct" role="form" class="form-horizontal"> 	
+				<div class="row">
+					<div class="form-group col-xs-10 col-lg-5">
+						<label class="control-label" for="inpProdNum">Product Number</label>
+						<div class="">
+							<input type="text" class="form-control" id="inpProdNum" name="inpProdNum" placeholder="1234ABCD">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-10 col-lg-5">
+						<label for="inpProject" class="control-label">Project</label>
+						<div class="">
+							<select id="inpProject" class='selectpicker'>
+							<?php
+								// Query the db for all active projects.
+								$qryGetActiveProejects = "SELECT * FROM tbl_projects WHERE proj_status = 1";
+								// Execute query
+								$rsltActiveProjects = mysqli_query($conn, $qryGetActiveProjects);
+
+								// Loop through the results
+								while($row = mysqli_fetch_array($rsltActiveProjects)) {
+								// For each project, do the following
+									echo "<option>".$row['proj_name']."</option>\n";
+								}
+
+							?>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row col-xs-offset-2">
+					<input class="btn btn-primary" type="submit" form="frmAddProduct" value="Save" />
+				</div>
+			</form>
 		</div>
-		<div class="form-group">
-			<label for="inpProject" class="col-sm-2 control-label">Project</label>
-			<div class="col-sm-10">
-				<select id="inpProject" class='selectpicker'>
-				<?php
-					// Query the db for all active projects.
-					$qryGetActiveProejects = "SELECT * FROM tbl_projects WHERE proj_status = 1";
-					// Execute query
-					$rsltActiveProjects = mysqli_query($conn, $qryGetActiveProjects);
-
-					// Loop through the results
-					while($row = mysqli_fetch_array($rsltActiveProjects)) {
-					// For each project, do the following
-						echo "<option>".$row['proj_name']."</option>\n";
-					}
-
-				?>
-				</select>
-			</div>
-
-		</div>
-		<input class="btn btn-primary" type="submit" form="frmAddProduct" value="Save" />
-	</form>
 	</div>
-
 	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 	<!-- jQuery must be loaded first for Bootstrap to not complain -->
     <script type="text/javascript" src="js/bootstrap-3.3.2.min.js"></script>
