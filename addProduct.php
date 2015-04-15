@@ -59,11 +59,28 @@ require_once("db/sql.php");
 	<div class="container center_container">
 	<!--div class="container center_container col-md-8 col-md-offset-2"-->
 		<div id="mainrow" class="row">
-			<div class="alert alert-success alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<strong>Success!</strong> Product added to project.
-			</div>
-
+			<?php 
+				if (!$success == null) {
+					// The query was attempted.
+					if ($success = true) {
+						// Query succeeded.
+						?>
+						<div class="alert alert-success alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<strong>Success!</strong> Product added to project.
+						</div>
+						<?php
+					} else {
+						// Query failed.
+						?>
+						<div class="alert alert-danger alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						    <strong>Error</strong> There was a problem adding the product to the project.
+						</div>
+						<?php
+					}
+				}
+			?>
 			<form method="POST" action="addProduct.php" id="frmAddProduct" role="form" class="form-horizontal"> 	
 				<div class="row col-xs-10 col-xs-offset-1 col-lg-5">
 					<div class="form-group">
