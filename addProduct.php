@@ -39,17 +39,31 @@ require_once("db/sql.php");
 													added_on)
 						VALUES ('".$_POST['inpProdNum']."',
 								'".$_SESSION['userID']."',
-								'1',
+								'".$_POST['inpQuantity']."',
 								'".$_POST['inpProject']."',
 								NOW())";
-		echo $qryAddProduct; 
-		//echo $_POST['inpProject'];
+		// Execute query
+		$rsltAddProduct = mysqli_query($conn,$qryAddProduct);
+
+		if ($rsltAddProduct == true) {
+			// Query completed successully.
+			$success = true;
+		} else {
+			// Query failed.
+			$success = false;
+		}
+
 	}
 	?>
 	
 	<div class="container center_container">
 	<!--div class="container center_container col-md-8 col-md-offset-2"-->
 		<div id="mainrow" class="row">
+			<div class="alert alert-success alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<strong>Success!</strong> Product added to project.
+			</div>
+
 			<form method="POST" action="addProduct.php" id="frmAddProduct" role="form" class="form-horizontal"> 	
 				<div class="row col-xs-10 col-xs-offset-1 col-lg-5">
 					<div class="form-group">
@@ -77,6 +91,14 @@ require_once("db/sql.php");
 								}
 							?>
 							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row col-xs-10 col-xs-offset-1 col-lg-5">
+					<div class="form-group">
+						<label for="inpQuantity" class="control-label">Quantity</label>
+						<div class="">
+							<input type="number" step="1" id="inpQuantity" name="inpQuantity" />
 						</div>
 					</div>
 				</div>
