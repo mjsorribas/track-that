@@ -85,7 +85,7 @@ require_once("db/sql.php");
 				<div class="control-group">
 					<label class="control-label" for="inpProdNum">Product Number</label>
 					<div class="controls">
-						<input type="text" class="form-control" id="inpProdNum" name="inpProdNum" placeholder="1234ABCD">
+						<input type="text" class="" id="inpProdNum" name="inpProdNum" placeholder="1234ABCD">
 					</div>
 				</div>
 				<div class="control-group">
@@ -113,7 +113,7 @@ require_once("db/sql.php");
 							<input type="number" step="1" id="inpQuantity" name="inpQuantity" />
 						</div>
 				</div>
-				<div class="form-actions">
+				<div class="form-actions control-group">
 					<input class="btn btn-primary" type="submit" form="frmAddProduct" value="Save" />
 				</div>
 			</form>
