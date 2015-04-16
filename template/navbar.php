@@ -1,13 +1,3 @@
-<?php
-    // Need to get the user's name from tbl_users
-    
-    // SESSION is already started.
-
-
-
-
-?>
-
         <!-- Start top Navbar -->
         <nav class="navbar navbar-inverse navbar-fixed-top navbar-default">
             <div class="container-fluid">
@@ -25,9 +15,9 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, <?php echo $_SESSION['userName']."!";?> <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a></li>
+                            <li><a href="#"><i class="fa fa-sign-in"></i> Go To (Other Area)</a></li>
                             <li class="divider"></li>
-                            <li><a href="logout.php">Log Out</a></li>
+                            <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
                   </ul>
