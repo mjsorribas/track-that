@@ -21,42 +21,36 @@
 
 	$qryGetProducts = "SELECT * FROM `tbl_products` WHERE `project_id`=".$projID;
 	// DEBUG
-	var_dump($qryGetProducts);
+	//var_dump($qryGetProducts);
 
 	// Execute query
 	$rsltGetProducts = mysqli_query($conn,$qryGetProducts);
 
-
-	//$num_fields = mysqli_num_fields($rsltGetProducts);
+	// Create array to hold our CSV headers which will be our sql column names
 	$headers = array();
 	
-	//for ($i = 0; $i < $num_fields; $i++) {
-	 //   $headers[] = mysqli_field_name($result , $i);
-	//}
-
+	// For every mysql column name, add it to the array
 	$finfo = mysqli_fetch_fields($rsltGetProducts);
     foreach ($finfo as $val) {
     	// For each column, do the following.
-        //printf("Name:     %s\n", $val->name);
         $headers[] = $val->name;
     }
-    mysqli_free_result($rsltGetProducts);
-    var_dump($headers);
 
+    // DEBUG
+    //var_dump($headers);
 
-	/*$fp = fopen('php://output', 'w');
-	if ($fp && $result) {
+	$fp = fopen('php://output', 'w');
+	if ($fp && $rsltGetProducts) {
 	    header('Content-Type: text/csv');
 	    header('Content-Disposition: attachment; filename="export.csv"');
 	    header('Pragma: no-cache');
 	    header('Expires: 0');
 	    fputcsv($fp, $headers);
-	    while ($row = $result->fetch_array(MYSQLI_NUM)) {
+	    while ($row = $rsltGetProducts->fetch_array(MYSQLI_NUM)) {
 	        fputcsv($fp, array_values($row));
 	    }
+	    // Free result memory
+	    mysqli_free_result($rsltGetProducts);
 	    die;
 	}
-	*/
-
-
 ?>
