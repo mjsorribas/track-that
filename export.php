@@ -13,24 +13,38 @@
 	require_once("template/security.php");
 
 	// Get the ID of the project we're exporting the products of.
-	if (isset($_POST['projID'])) {
-		$projID = $_POST['projID'];
-	} else (
-		die("Couldn't locate that project.")
-	)
+	if (isset($_GET['projID'])) {
+		$projID = $_GET['projID'];
+	} else {
+		die("Couldn't locate that project.");
+	}
 
-	$qryGetProducts = "SELECT * FROM 'tbl_products' WHERE 'project_id'=".$projID;
+	$qryGetProducts = "SELECT * FROM `tbl_products` WHERE `project_id`=".$projID;
+	// DEBUG
+	var_dump($qryGetProducts);
 
 	// Execute query
 	$rsltGetProducts = mysqli_query($conn,$qryGetProducts);
 
 
-	$num_fields = mysqli_num_fields($rsltGetProducts);
+	//$num_fields = mysqli_num_fields($rsltGetProducts);
 	$headers = array();
-	for ($i = 0; $i < $num_fields; $i++) {
-	    $headers[] = mysqli_field_name($result , $i);
-	}
-	$fp = fopen('php://output', 'w');
+	
+	//for ($i = 0; $i < $num_fields; $i++) {
+	 //   $headers[] = mysqli_field_name($result , $i);
+	//}
+
+	$finfo = mysqli_fetch_fields($rsltGetProducts);
+    foreach ($finfo as $val) {
+    	// For each column, do the following.
+        //printf("Name:     %s\n", $val->name);
+        $headers[] = $val->name;
+    }
+    mysqli_free_result($rsltGetProducts);
+    var_dump($headers);
+
+
+	/*$fp = fopen('php://output', 'w');
 	if ($fp && $result) {
 	    header('Content-Type: text/csv');
 	    header('Content-Disposition: attachment; filename="export.csv"');
@@ -42,6 +56,7 @@
 	    }
 	    die;
 	}
+	*/
 
 
 ?>
