@@ -98,7 +98,7 @@
 						?>
 						<h2 class="sub-header">
 							<?php echo $projName."\n"; ?>
-							<a href="#">
+							<a href=<?php echo "export.php?projID=".$_GET['projid']; ?> >
 								<button class="btn btn-primary btnExport">Export</button>
 							</a>
 						</h2>
