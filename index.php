@@ -60,9 +60,9 @@
                             // Loop through the sql results
                             while($row = mysqli_fetch_array($rsltGetLatestActivity)) {
                                 // For every result row, do the following.
-                                echo "<tr>";
-
-
+                                echo "<tr>\n\t";
+                                echo "<td>".formatTime($row['occured'])."</td>\n";
+                                
                                 echo "</tr>";
                             }
                         ?>
