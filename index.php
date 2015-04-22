@@ -12,13 +12,14 @@
         $desc = $row['user_name'];
 
         if ($row['ActivityType'] == "product_add") {
-            $desc .= " added a product to <a href='products.php?projid=".$row['project_id']."''>".$row['proj_name']."</a>";
+            $desc .= " added a product to <a href='products.php?projid=".$row['project_id']."'>".$row['proj_name']."</a>";
         } elseif ($row['ActivityType'] == "project_update") {
-            $desc .= " edited project <a href='products.php?projid=".$row['project_id']."''>".$row['proj_name']."</a>";
+            $desc .= " edited project <a href='products.php?projid=".$row['project_id']."'>".$row['proj_name']."</a>";
         }
         return $desc;
     }
 ?>
+    <!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
         <title>Inventory System</title>
