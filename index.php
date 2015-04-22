@@ -82,23 +82,6 @@
                                 echo "</tr>";
                             }
                         ?>
-
-                        <tr>
-                            <td>2/18/15 10:28am</td>
-                            <td>Ethan added an item to <a href="#">Alliance Insurance - 2 new cable drops</a></td>
-                        </tr>
-                        <tr>
-                            <td>2/18/15 8:46am</td>
-                            <td>Jeremy added project <a href="#">Alliance Insurance - 2 new cable drops</a></td>
-                        </tr>
-                        <tr>
-                            <td>2/16/15 3:10pm</td>
-                            <td>Chris changed project <a href="">BECSWCD - 3 Fiber Runs</a> status to Inactive</td>
-                        </tr>
-                        <tr>
-                            <td>2/16/15 2:34pm</td>
-                            <td>Chad added an item to <a href="#">First National Bank-New Front Cameras</a></td>
-                        </tr>
                     </table>
                 </div>
         </div><!-- container-fluid-->
