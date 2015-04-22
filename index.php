@@ -85,5 +85,6 @@
                         ?>
                     </table>
                 </div>
+            </div>
         </div><!-- container-fluid-->
         <?php require_once("template/footer.php"); ?>
