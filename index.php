@@ -5,6 +5,19 @@
 -->
 <?php 
     require_once('template/security.php');
+
+    function createEvent ($row) {
+        // Takes a mysqli_fetch_array array and creates a string containing the event description.
+        // For now, the only descriptions are "added product" and "edited project"
+        $desc = $row['user_name'];
+
+        if ($row['ActivityType'] == "product_add") {
+            $desc .= " added a product to project ".$row['proj_name'];
+        } elseif ($row['ActivityType'] == "project_update") {
+            $desc .= " edited project ".$row['proj_name'];
+        }
+        return $desc;
+    }
 ?>
     <head>
         <meta charset="UTF-8">
@@ -60,9 +73,12 @@
                             // Loop through the sql results
                             while($row = mysqli_fetch_array($rsltGetLatestActivity)) {
                                 // For every result row, do the following.
+
+                                // Create an event description
+
                                 echo "<tr>\n\t";
                                 echo "<td>".formatTime($row['occured'])."</td>\n";
-                                
+                                echo "<td>".createEvent($row)."</td>";
                                 echo "</tr>";
                             }
                         ?>
