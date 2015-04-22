@@ -1,9 +1,9 @@
-<!--
-        index.php - The overview view of the system
-        Created on: 2/17/15
-        Created by: Dan
--->
 <?php 
+/*
+    index.php - The overview view of the system
+    Created on: 2/17/15
+    Created by: Dan
+*/
     require_once('template/security.php');
 
     function createEvent ($row) {
