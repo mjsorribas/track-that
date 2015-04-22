@@ -1,11 +1,12 @@
-<!-- 
+<?php 
+/*
 	products.php - View products added to project. 
     Created on: 2/23/15
     Created by: Dan Salmon
--->
-<?php 
+*/
 	require_once('template/security.php');
 ?>
+<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <title>Inventory System - Products</title>
