@@ -35,13 +35,13 @@
               <?php
                 echo ($sidebarActivePage == "projects-add" ? "<li class='active'>" : "<li>");
               ?>
-                  <a href="addProject.php">Add Project</a>
+                  <a href="addproject.php">Add Project</a>
               </li>
 
               <?php
                 echo ($sidebarActivePage == "projects-edit" ? "<li class='active'>" : "<li>");
               ?>
-                <a href="editProject.php">Edit Project</a>
+                <a href="editproject.php">Edit Project</a>
               </li>
             </ul>
         </ul>
