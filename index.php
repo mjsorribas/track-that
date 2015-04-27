@@ -57,14 +57,14 @@
 
                 ?>
                 <div class="col-md-offset-2 maincontent">
-                    <h1 class="page-header">Overview</h1>
-                    <p>Ideas for information here:</p>
+                    <h1 class="page-header">Latest Activity</h1>
+                    <!--p>Ideas for information here:</p>
                     <ul>
                         <li>Number of projects: Total/Active/Inactive</li>
                         <li>Parts added today: </li>
                     </ul>
 
-                    <h2 class="sub-header">Latest Activity</h2>
+                    <h2 class="sub-header">Latest Activity</h2-->
                     <table class="table table-striped">
                         <tr>
                             <th class="left">Time</th>
